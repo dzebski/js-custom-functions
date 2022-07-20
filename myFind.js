@@ -4,19 +4,31 @@
 // 👉 Custom FIND function       //
 // --------------------------   //
 
+// function myFind(array, callback) {
+//     for (let i = 0; i < array.length; i++) {
+//         if (callback(array[i]) === true)
+//             return array[i]
+//     }
+// }
+
 function myFind(array, callback) {
-    for (let i = 0; i < array.length; i++) {
-        if (callback(array[i]) === true)
-            return array[i]
-    }
+    for (const element of array)
+        if (callback(element))
+            return element
 }
 
+// Array.prototype.myFindProto = function(callback) {
+//     for (let i = 0; i < this.length; i++ ) {
+//         if (callback(this[i]) === true) {
+//             return this[i]
+//         }
+//     }
+// }
+
 Array.prototype.myFindProto = function(callback) {
-    for (let i = 0; i < this.length; i++ ) {
-        if (callback(this[i]) === true) {
-            return this[i]
-        }
-    }
+    for (const element of this) 
+        if (callback(element)) 
+            return element
 }
 
 // --------------------------   //
