@@ -4,18 +4,34 @@
 // 👉 Custom MAP function       //
 // --------------------------   //
 
+// function myMap(array, callback) {
+//     let mappedArray = []
+//     for (let i = 0; i < array.length; i++) {
+//         mappedArray.push(callback(array[i]))
+//     }
+//     return mappedArray
+// }
+
 function myMap(array, callback) {
     let mappedArray = []
-    for (let i = 0; i < array.length; i++) {
-        mappedArray.push(callback(array[i]))
+    for (const element of array) {
+        mappedArray.push(callback(element))
     }
     return mappedArray
 }
 
+// Array.prototype.myMapProto = function(callback) {
+//     let mappedArray = []
+//     for (let i = 0; i < this.length; i++) {
+//         mappedArray.push(callback(this[i]))
+//     }
+//     return mappedArray
+// }
+
 Array.prototype.myMapProto = function(callback) {
     let mappedArray = []
-    for (let i = 0; i < this.length; i++) {
-        mappedArray.push(callback(this[i]))
+    for (const element of this) {
+        mappedArray.push(callback(element))
     }
     return mappedArray
 }
@@ -58,5 +74,6 @@ console.table(mappedStrings)
 // #3. Objects
 let mappedUsers = myMap(userArray,user => [user.givenName, user.secondName].join(' '))
 mappedUsers = userArray.myMapProto(user => [user.givenName, user.secondName].join(' '))
+
 console.log('Mapped Users: Name + Second Name 👇')
 console.table(mappedUsers)
