@@ -4,23 +4,39 @@
 // 👉 Custom FILTER function       //
 // --------------------------   //
 
+// function myFilter(array, callback) {
+//     let result = []
+//     for (let i = 0; i < array.length; i++) {
+//         if (callback(array[i]) === true) {
+//             result.push(array[i])
+//         }
+//     }
+//     return result
+// }
+
 function myFilter(array, callback) {
     let result = []
-    for (let i = 0; i < array.length; i++) {
-        if (callback(array[i]) === true) {
-            result.push(array[i])
-        }
-    }
+    for (const element of array)
+        if (callback(element))
+            result.push(element)
     return result
 }
 
+// Array.prototype.myFilterProto = function(callback) {
+//     let result = []
+//     for (let i = 0; i < this.length; i++) {
+//         if (callback(this[i]) === true) {
+//             result.push(this[i])
+//         }
+//     }
+//     return result
+// }
+
 Array.prototype.myFilterProto = function(callback) {
     let result = []
-    for (let i = 0; i < this.length; i++) {
-        if (callback(this[i]) === true) {
-            result.push(this[i])
-        }
-    }
+    for (const element of this)
+        if (callback(element))
+            result.push(element)
     return result
 }
 
