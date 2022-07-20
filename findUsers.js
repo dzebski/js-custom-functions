@@ -13,7 +13,7 @@ const sampleData = [
     }
 ]
 
-const usersWithAge = () => {
+function findUsers() {
     let result = []
     for (const user of sampleData)
         if (user.age > 15)
@@ -21,4 +21,6 @@ const usersWithAge = () => {
     return result
 }
 
-console.table(usersWithAge())
+const usersWithAge = findUsers()
+
+console.table(usersWithAge)
