@@ -10,17 +10,47 @@ const sampleData = [
     {
         age: 20,
         name: 'Test2'
+    },
+    {
+        age: 21,
+        name: 'Test3'
+    },
+    {
+        age: 15,
+        name: 'Test4'
     }
 ]
 
-function findUsers() {
+const transformUpper = (data) => {
     let result = []
-    for (const user of sampleData)
+    for (const user of data)
         if (user.age > 15)
             result.push(user.name.toUpperCase())
     return result
 }
 
-const usersWithAge = findUsers()
+Array.prototype.transformUpperProto = function() {
+    let result = []
+    for (const user of this)
+        if (user.age > 15)
+            result.push(user.name.toUpperCase())
+    return result
+}
 
-console.table(usersWithAge)
+// Anon function
+const resultArray = transformUpper(sampleData)
+console.log(resultArray)
+
+// Prototype function
+console.log(sampleData.transformUpperProto())
+
+
+// function findUsers() {
+//     let result = []
+//     for (const user of sampleData)
+//         if (user.age > 15)
+//             result.push(user.name.toUpperCase())
+//     return result
+// }
+// const usersWithAge = findUsers()
+// console.table(usersWithAge)
